@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+ <div>
+
+    <img src="{{ url_for('video') }}" width="50%"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        function sendRequest() {
+            $.ajax({
+                url: 'detectImage',
+                type: 'get',
+                success: function (resp) {
+                    console.log(resp)
+                    if (resp == 'True') {
+                        clearInterval(myVar)
+                        location.href = "/found";
+                    } 
+
+                },
+                error: function (err) {
+                    console.log('error');
+                }
+
+            });
+        }
+        var myVar = setInterval(sendRequest, 500);
+    </script>
+    </div>
+
+</body>
+</html>
