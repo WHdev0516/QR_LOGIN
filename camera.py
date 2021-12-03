@@ -1,11 +1,11 @@
 from flask import Flask, render_template, Response,redirect
-# from pyzbar.pyzbar import decode
-# import cv2
+from pyzbar.pyzbar import decode
+import cv2
 import winsound
 import sys
 found_flag = False
 app = Flask(__name__)
-# camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(0)
 
 
 def hello():
